@@ -1,0 +1,19 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: container_min
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "0000"
+      MYSQL_DATABASE: Concierto_Mexico
+      MYSQL_USER: root
+      MYSQL_PASSWORD: "0000"
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./BDArquitectura:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
+
+volumes:
+  mysql_data:
+
